@@ -1,0 +1,196 @@
+<main class="page">
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon"> 
+        <img src="assets/imgs/radweb-small.png" width="50" alt="Radiweb 3D Logo">
+      </span> 
+      <span class="logo-text">RADIWEB 3D</span>
+    </div>
+
+    <nav aria-label="Main Navigation">
+      <a href="#features">Features</a>
+      <a href="#multimodal">Co-Registration</a>
+      <a href="#rt">Radiotherapy</a>
+      <a href="#architecture">Architecture</a>
+    </nav>
+
+    <button class="launch-btn" (click)="launchApp()" type="button">
+      Launch Web App <span class="btn-arrow" aria-hidden="true">→</span>
+    </button>
+  </header>
+
+  <section class="hero">
+    <div class="badge" role="doc-subtitle">🚀 Next-Gen Web-First Medical Physics Platform</div>
+
+    <h1>Desktop-Grade Medical Imaging <br><span class="gradient-text">Directly in the Browser</span></h1>
+
+    <p>
+      Real-time 3D volume rendering, multiplanar reconstruction (MPR), and automated multi-source co-registration. Built for desktop and mobile tablet workflows—no plugins, no installation.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn primary" (click)="launchApp()" type="button">
+        Launch Viewer
+      </button>
+
+      <button class="btn ghost" (click)="tryDemo()" type="button">
+        Try Demo Scan
+      </button>
+
+      <button class="btn secondary" (click)="openGithub()" type="button">
+        View Source
+      </button>
+    </div>
+  </section>
+
+  <section class="viewport-display-section" aria-label="App Workstation Preview">
+    <div class="medical-workstation-frame">
+      <div class="ws-menubar">
+        <div class="ws-left">
+          <span class="ws-status-indicator static" aria-hidden="true"></span>
+          <span class="ws-title">RADIWEB 3D // MULTIPLANAR RECONSTRUCTION (MPR)</span>
+        </div>
+        <div class="ws-center">
+          <span class="ws-dataset-tag">STUDY: DICOM_CT_VOLUMETRIC_VIEW</span>
+        </div>
+        <div class="ws-right">
+          <span class="ws-badge">MATRIX: 512×512×100</span>
+          <span class="ws-badge hierarchy">TEXTURE: 16-BIT HU</span>
+        </div>
+      </div>
+
+      <div class="ws-screenshot-viewport">
+        <img src="assets/imgs/mpr.jpg" alt="Radiweb 3D Multiplanar Reconstruction Interface showing Axial, Coronal, and Sagittal views" class="ws-real-img">
+      </div>
+
+      <div class="ws-disclaimer" role="alert">
+        ⚠️ RESEARCH USE ONLY — NOT FOR CLINICAL DIAGNOSTIC DECISIONS
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="section-heading">
+      <span class="sub">Performance & Visualization</span>
+      <h2>Advanced Web Engine</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">👁️‍🗨️</div>
+        <h3>1D & 2D Transfer Functions</h3>
+        <p>Isolate critical anatomy instantly. Map Hounsfield Units to opacity via 1D TF, or leverage advanced 2D TF mapping (HU vs. Gradient Magnitude) for crisp surface boundary detection.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">✂️</div>
+        <h3>Interactive MPR</h3>
+        <p>Synchronized Axial, Coronal, and Sagittal views mapped using hybrid Canvas/SVG overlays for fluid, sub-millimeter line dragging.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">🧠</div>
+        <h3>NIfTI Atlas Parsing</h3>
+        <p>Natively read and overlay complex NIfTI-formatted structural brain atlases directly over standard patient CT scans with perfect spatial coordination.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">📱</div>
+        <h3>Mobile Tablet Ready</h3>
+        <p>Engineered with a memory-efficient voxel-traversal pipeline optimized specifically for touch events and hardware acceleration on mobile devices.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="multimodal" class="section dark">
+    <div class="section-heading">
+      <span class="sub">Automation</span>
+      <h2>Intrinsic Spatial Alignment</h2>
+    </div>
+    
+    <div class="split-layout">
+      <div class="split-text">
+        <h3>Zero-Click Multiplanar Co-Registration</h3>
+        <p>
+          Forget manual registration step-ups. RADIWEB 3D automatically harmonizes heterogeneous matrix arrays on the fly. 
+        </p>
+        <ul class="feature-list">
+          <li><strong>Header Matrix Mapping:</strong> Automatically parses NIfTI affine transformations (sform/qform) to synchronize coordinates with DICOM physical space.</li>
+          <li><strong>Multimodal Overlay:</strong> Simultaneously view structural CT arrays, anatomical labels, and dose distributions perfectly aligned.</li>
+          <li><strong>Resolution Agnostic:</strong> Seamless crosshair tracking across mismatched dimensions (e.g., mapping a 256x256 Atlas onto a 512x512 CT).</li>
+        </ul>
+      </div>
+      <div class="split-graphic">
+        <div class="layer-stack" aria-label="Visual representation of multimodal data overlay stack">
+          <div class="layer ly-3">NIfTI Brain Atlas (Label Map)</div>
+          <div class="layer ly-2">DICOM SEG / RTSTRUCT Contours</div>
+          <div class="layer ly-1">Structural Reference CT (512x512)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rt" class="section">
+    <div class="section-heading">
+      <span class="sub">Dosimetry & Segmentation</span>
+      <h2>Radiotherapy Analytics</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">🎯</div>
+        <h3>DICOM SEG & RTSTRUCT</h3>
+        <p>Render overlapping segmentation masks and intricate structure contours with high-performance polygon sorting.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">☢️</div>
+        <h3>RT Dose Matrices</h3>
+        <p>Overlay continuous dose distributions directly onto anatomy with adjustable threshold color lookups and alpha-blending controls.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">📈</div>
+        <h3>On-The-Fly DVH Engine</h3>
+        <p>Compute precise Dose-Volume Histograms asynchronously in web worker threads, maintaining absolute system responsiveness during calculations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture" class="section dark-slate">
+    <div class="section-heading">
+      <span class="sub">Under The Hood</span>
+      <h2>The Tech Stack Architecture</h2>
+    </div>
+    
+    <div class="tech-nodes">
+      <div class="node"><span>Framework</span><strong>Angular & TypeScript</strong></div>
+      <div class="arrow-r" aria-hidden="true">→</div>
+      <div class="node"><span>Graphics Pipeline</span><strong>HTML5 Canvas & WebGL</strong></div>
+      <div class="arrow-r" aria-hidden="true">→</div>
+      <div class="node"><span>UI Layer</span><strong>Scalable Vector Graphics (SVG)</strong></div>
+    </div>
+    <p class="arch-note">By separating heavy pixel matrices onto the HTML5 canvas layer and structural crosshairs onto high-precision SVG vector overlays, RADIWEB 3D retains sub-pixel precision while scaling down smoothly to touch devices.</p>
+  </section>
+
+  <section class="cta" aria-label="Call to Action">
+    <h2>Ready for Interdisciplinary Tumor Boards?</h2>
+    <p>Streamline bedside review loops, clinical discussions, and remote plan verifications with zero software footprints.</p>
+    <div class="cta-buttons">
+      <button class="btn primary large" (click)="launchApp()" type="button">Launch Web App</button>
+      <button class="btn secondary large" (click)="tryDemo()" type="button">Try Sample Scan</button>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <p><strong>RADIWEB 3D</strong> — Open-Access Web Innovations in Medical Physics</p>
+      <p class="footer-email">Inquiries: <a href="mailto:contact@radiweb3d.org">contact&#64;radiweb3d.org</a></p>
+      <div class="footer-badges">
+        <span>Web-Native Open Source</span> • <span>Research Sandbox</span> • <span>Freiburg System Framework</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
