@@ -70,39 +70,80 @@
     </div>
   </section>
 
-  <section id="features" class="section">
-    <div class="section-heading">
-      <span class="sub">Performance & Visualization</span>
-      <h2>Advanced Web Engine</h2>
-    </div>
+<section id="features" class="section">
+  <div class="section-heading">
+    <span class="sub">Performance & Visualization</span>
+    <h2>Advanced Web Engine</h2>
+  </div>
 
-    <div class="grid">
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">👁️‍🗨️</div>
-        <h3>1D & 2D Transfer Functions</h3>
-        <p>Isolate critical anatomy instantly. Map Hounsfield Units to opacity via 1D TF, or leverage advanced 2D TF mapping (HU vs. Gradient Magnitude) for crisp surface boundary detection.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">✂️</div>
-        <h3>Interactive MPR</h3>
-        <p>Synchronized Axial, Coronal, and Sagittal views mapped using hybrid Canvas/SVG overlays for fluid, sub-millimeter line dragging.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">🧠</div>
-        <h3>NIfTI Atlas Parsing</h3>
-        <p>Natively read and overlay complex NIfTI-formatted structural brain atlases directly over standard patient CT scans with perfect spatial coordination.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">📱</div>
-        <h3>Mobile Tablet Ready</h3>
-        <p>Engineered with a memory-efficient voxel-traversal pipeline optimized specifically for touch events and hardware acceleration on mobile devices.</p>
+  <div class="grid">
+    <div class="card feature-card-with-media">
+      <div class="card-icon" aria-hidden="true">👁️‍🗨️</div>
+      <h3>1D & 2D Transfer Functions</h3>
+      <p>Isolate critical anatomy instantly. Map Hounsfield Units to opacity via 1D TF, or leverage advanced 2D TF mapping (HU vs. Gradient Magnitude).</p>
+      
+      <div class="card-screenshot-wrapper" (click)="openLightbox(thumb2dTransferFunctionSrc)">
+        <img [src]="thumb2dTransferFunctionSrc" alt="2D Transfer Function Widget UI" class="card-thumb-img">
+        <span class="zoom-overlay">Click to expand preview 🔍</span>
       </div>
     </div>
-  </section>
 
+    <div class="card feature-card-with-media">
+      <div class="card-icon" aria-hidden="true">✂️</div>
+      <h3>Interactive MPR</h3>
+      <p>Synchronized Axial, Coronal, and Sagittal views mapped using hybrid Canvas/SVG overlays for fluid, sub-millimeter line dragging.</p>
+      
+      <div class="card-screenshot-wrapper" (click)="openLightbox(thumbMprLinesSrc)">
+        <img width="100" [src]="thumbMprLinesSrc" alt="Sub-millimeter MPR crosshair synchronization" class="card-thumb-img">
+        <span class="zoom-overlay">Click to expand preview 🔍</span>
+      </div>
+    </div>
+
+    <div class="card feature-card-with-media">
+      <div class="card-icon" aria-hidden="true">🧠</div>
+      <h3>NIfTI Atlas Parsing</h3>
+      <p>Natively read and overlay complex NIfTI-formatted structural brain atlases directly over standard patient CT scans.</p>
+      
+      <div class="card-screenshot-wrapper" (click)="openLightbox(thumbNiftiOverlaySrc)">
+        <img [src]="thumbNiftiOverlaySrc" alt="NIfTI brain atlas segmentation overlay" class="card-thumb-img">
+        <span class="zoom-overlay">Click to expand preview 🔍</span>
+      </div>
+    </div>
+
+    <!-- <div class="card feature-card-with-media">
+      <div class="card-icon" aria-hidden="true">📱</div>
+      <h3>Mobile Tablet Ready</h3>
+      <p>Engineered with a memory-efficient voxel-traversal pipeline optimized specifically for touch events and hardware acceleration.</p>
+      
+      <div class="card-screenshot-wrapper" (click)="openLightbox('tablet-ui')">
+        <img src="assets/imgs/features/thumb-tablet-gesture.jpg" alt="RADIWEB 3D running on a mobile tablet interface" class="card-thumb-img">
+        <span class="zoom-overlay">Click to expand preview 🔍</span>
+      </div>
+    </div> -->
+  
+  <div class="card feature-card-with-media">
+  <div class="card-icon" aria-hidden="true">📱</div>
+  <h3>Mobile Tablet Ready</h3>
+  <p>Engineered with a memory-efficient voxel-traversal pipeline optimized specifically for touch events and hardware acceleration on mobile devices.</p>
+  
+  <div class="card-screenshot-wrapper tablet-preview" (click)="openLightbox(thumbTabletUiSrc)">
+    <img [src]="thumbTabletUiSrc" alt="RADIWEB 3D mobile viewport layout" class="card-thumb-img">
+    
+    <div class="gesture-overlay" aria-hidden="true">
+      <svg class="hand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 11V5a2 2 0 1 0-4 0v9M8 10a2 2 0 0 0-4 0v4a7 7 0 0 0 14 0v-4a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0z" />
+        <path d="M12 14v-4a2 2 0 0 1 4 0" />
+      </svg>
+      <span class="pulse-ring"></span>
+    </div>
+
+    <span class="zoom-overlay">Click to expand preview 🔍</span>
+  </div>
+</div>
+  
+  
+  </div>
+</section>
   <section id="multimodal" class="section dark">
     <div class="section-heading">
       <span class="sub">Automation</span>
@@ -131,7 +172,7 @@
     </div>
   </section>
 
-  <section id="rt" class="section">
+  <!-- <section id="rt" class="section">
     <div class="section-heading">
       <span class="sub">Dosimetry & Segmentation</span>
       <h2>Radiotherapy Analytics</h2>
@@ -156,8 +197,61 @@
         <p>Compute precise Dose-Volume Histograms asynchronously in web worker threads, maintaining absolute system responsiveness during calculations.</p>
       </div>
     </div>
-  </section>
+  </section> -->
 
+
+  <section id="rt" class="section">
+  <div class="section-heading">
+    <span class="sub">Dosimetry & Segmentation</span>
+    <h2>Radiotherapy Analytics</h2>
+  </div>
+
+  <div class="grid">
+    <div class="card feature-card-with-media">
+      <div class="card-icon" aria-hidden="true">🎯</div>
+      <h3>DICOM SEG & RTSTRUCT</h3>
+      <p>Render overlapping segmentation masks and intricate structure contours with high-performance polygon sorting.</p>
+      
+      <div class="card-screenshot-wrapper" (click)="openLightbox(thumbRtStructSrc)">
+        <img [src]="thumbRtStructSrc" alt="DICOM RTSTRUCT contour overlays on axial slice" class="card-thumb-img">
+        <span class="zoom-overlay">Click to expand preview 🔍</span>
+      </div>
+    </div>
+
+    <div class="card feature-card-with-media">
+      <div class="card-icon" aria-hidden="true">☢️</div>
+      <h3>RT Dose Matrices</h3>
+      <p>Overlay continuous dose distributions directly onto anatomy with adjustable threshold color lookups and alpha-blending controls.</p>
+      
+      <div class="card-screenshot-wrapper" (click)="openLightbox(thumbRtDoseSrc)">
+        <img [src]="thumbRtDoseSrc" alt="Isodose color wash overlay distribution" class="card-thumb-img">
+        <span class="zoom-overlay">Click to expand preview 🔍</span>
+      </div>
+    </div>
+
+    <div class="card feature-card-with-media">
+      <div class="card-icon" aria-hidden="true">📈</div>
+      <h3>On-The-Fly DVH Engine</h3>
+      <p>Compute precise Dose-Volume Histograms asynchronously in web worker threads, maintaining absolute system responsiveness during calculations.</p>
+      
+      <div class="card-screenshot-wrapper" (click)="openLightbox(thumbDvhSrc)">
+        <img [src]="thumbDvhSrc" alt="Dose-Volume Histogram chart panel" class="card-thumb-img">
+        <span class="zoom-overlay">Click to expand preview 🔍</span>
+      </div>
+    </div>
+
+    <div class="card feature-card-with-media">
+  <div class="card-icon" aria-hidden="true">📐</div>
+  <h3>3D RTPLAN Simulation</h3>
+  <p>Visualize complex beam geometry in true 3D space. Project trajectories from linac source to isocenter, rendering gantry arcs as energy cylinders alongside dynamic jaw and MLC leaf positions.</p>
+  
+  <div class="card-screenshot-wrapper" (click)="openLightbox(thumbRtPlanSrc)">
+    <img [src]="thumbRtPlanSrc" alt="3D RTPlan beam geometry and linac arc simulation" class="card-thumb-img">
+    <span class="zoom-overlay">Click to expand preview 🔍</span>
+  </div>
+</div>
+  </div>
+</section>
   <section id="architecture" class="section dark-slate">
     <div class="section-heading">
       <span class="sub">Under The Hood</span>
@@ -192,5 +286,10 @@
       </div>
     </div>
   </footer>
-
+<div class="lightbox-overlay" *ngIf="activeLightboxImg" (click)="closeLightbox()">
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <button class="close-lightbox-btn" (click)="closeLightbox()">&times;</button>
+    <img [src]="activeLightboxImg" alt="Enlarged medical feature screenshot" class="lightbox-main-img">
+  </div>
+</div>
 </main>
