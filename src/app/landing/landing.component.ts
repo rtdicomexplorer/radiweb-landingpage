@@ -13,7 +13,7 @@ export class LandingComponent {
 activeLightboxImg: string | null = null;
   constructor(private router: Router) {}
 
-  viewerUrl = 'https://dicom-web-viewer-b4139.firebaseapp.com/';
+  viewerUrl = 'https://radiweb-3d.web.app/';
 
 // launchApp() {
 //   window.open(
