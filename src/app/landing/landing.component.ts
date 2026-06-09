@@ -15,16 +15,9 @@ activeLightboxImg: string | null = null;
 
   viewerUrl = 'https://radiweb-3d.web.app/';
 
-// launchApp() {
-//   window.open(
-//     'https://dicom-web-viewer-b4139.firebaseapp.com/',
-//     '_blank',
-//     'noopener,noreferrer'
-//   );
-// }
-
 
 thumbNiftiOverlaySrc = 'assets/imgs/features/thumb-nifti-overlay.jpg';
+thumbNiftiAtlas = 'assets/imgs/features/thumb-atlas.png';
 thumbMprLinesSrc= 'assets/imgs/features/thumb-mpr-lines.jpg';
 thumb2dTransferFunctionSrc = 'assets/imgs/features/thumb-2d-transfer-function.jpg'
 thumbTabletUiSrc = 'assets/imgs/features/thumb-tablet-ui.jpg';
@@ -34,6 +27,30 @@ thumbRtDoseSrc   = 'assets/imgs/features/thumb-rtdose.jpg';
 thumbDvhSrc      = 'assets/imgs/features/thumb-dvh.jpg';
 thumbRtPlanSrc = 'assets/imgs/features/thumb-rtplan.jpg';
 
+
+
+thumbKidney= 'assets/imgs/features/thumb-kidney.png';
+thumbLung= 'assets/imgs/features/thumb-lung.png';
+thumbLung2 = 'assets/imgs/features/thumb-lung2.png';
+thumbSr = 'assets/imgs/features/thumb-sr.png';
+thumbBrain = 'assets/imgs/features/thumb-brain.png';
+thumbKidneys = 'assets/imgs/features/vr_kidneys.gif';
+thumbHnRadio = 'assets/imgs/features/thumb-hn-radio.png';
+thumbLungSeg = 'assets/imgs/features/thumb-lung-seg.png';
+
+
+caruselSrc =  [
+                
+                
+                { img: this.thumbLung, label: 'Lung VR' },
+                { img: this.thumbKidney, label: 'Kidney VR' },
+                {img: this.thumbBrain, label: 'brain VR'},
+                { img: this.thumbLung2, label: 'Lung VR' },
+                { img: this.thumbSr, label: 'chest SR' },
+        
+                    { img: this.thumbHnRadio, label: 'head neck' },
+                      { img: this.thumbLungSeg, label: 'Segment' },
+              ]
   launchApp() {
     window.open(this.viewerUrl, '_blank', 'noopener,noreferrer');
   }

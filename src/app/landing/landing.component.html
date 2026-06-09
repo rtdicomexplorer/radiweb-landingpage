@@ -8,9 +8,14 @@
           alt="Radiweb 3D Logo"
         />
       </span>
-      <span class="logo-text">RADIWEB 3D</span>
+      <!-- Wrapped text components inside a flex-column layout -->
+      <div class="logo-text-wrapper">
+        <span class="logo-text">RADIWEB 3D</span>
+        <span class="logo-tagline"
+          >High-Performance Client-Side Medical Image Visualization Engine</span
+        >
+      </div>
     </div>
-
     <nav aria-label="Main Navigation">
       <a href="#features">Features</a>
       <a href="#multimodal">Co-Registration</a>
@@ -27,16 +32,16 @@
     <div class="hero-layout">
       <div class="hero-text">
         <h1>Next-Gen Web-First Medical Physics Platform</h1>
-
         <h2>
-          Desktop-Grade Medical Imaging <br />
+          Experience Desktop-Grade Performance
+
+          <br />
           <span class="gradient-text">Directly in the Browser</span>
         </h2>
-
         <p>
           Real-time 3D volume rendering, multiplanar reconstruction (MPR), and
           automated multi-source co-registration. Built for desktop and mobile
-          tablet workflows—no plugins, no installation.
+          tablet workflows—no plugins, no installation required.
         </p>
       </div>
 
@@ -44,15 +49,17 @@
         <div class="device-stack">
           <div class="iphone" style="--scale: 0.35">
             <div class="iphone-screen">
-              <img [src]="thumbNiftiOverlaySrc" />
+              <img
+                [src]="thumbNiftiAtlas"
+                alt="Mobile viewing atlas mapping"
+              />
             </div>
           </div>
           <div class="ipad" style="--scale: 0.45">
             <div class="ipad-screen">
-              <img [src]="thumbRtDoseSrc" />
+              <img [src]="thumbRtDoseSrc" alt="Tablet viewing dosimetry wash" />
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -74,8 +81,9 @@
         </div>
       </div>
 
-      <div class="ws-screenshot-viewport">
+      <div class="ws-screenshot-viewport" (click)="openLightbox('assets/imgs/mpr.jpg')">
         <img src="assets/imgs/mpr.jpg" alt="Radiweb 3D Multiplanar Reconstruction Interface showing Axial, Coronal, and Sagittal views" class="ws-real-img">
+        <span class="zoom-overlay">Click to expand workstation view 🔍</span>
       </div>
 
       <div class="ws-disclaimer" role="alert">
@@ -94,13 +102,7 @@
         <h2>A Complete Medical Imaging Suite in One Tab</h2>
         <p>
           From standard 2D slice analysis to advanced 3D volumetric planning and
-          dosimetry simulations.
-        </p>
-
-        <h2>Experience Desktop-Grade Performance in the Browser</h2>
-        <p>
-          Test real-time 3D volume rendering, dynamic contouring, and zero-click
-          co-registration instantly with our web-native pipeline.
+          dosimetry simulations powered by hardware-accelerated WebGL pipelines.
         </p>
       </div>
     </div>
@@ -108,55 +110,121 @@
     <div class="montage-image-strip">
       <div class="montage-track-animated">
         <div class="montage-set">
-          <div class="montage-cell">
-            <img [src]="thumbMprLinesSrc" alt="Interactive MPR" />
-            <span class="cell-label">Interactive MPR</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumb2dTransferFunctionSrc" alt="3D Volume Rendering" />
-            <span class="cell-label">3D Volume Rendering</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumbNiftiOverlaySrc" alt="Spatial Atlas Mapping" />
-            <span class="cell-label">Spatial Atlas Mapping</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumbRtDoseSrc" alt="Dosimetry Analytics" />
-            <span class="cell-label">Dosimetry Analytics</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumbRtPlanSrc" alt="3D RTPLAN Geometry" />
-            <span class="cell-label">3D RTPLAN Geometry</span>
+          <div
+            class="montage-cell"
+            *ngFor="let item of caruselSrc"  >
+            <img [src]="item.img" [alt]="item.label" />
+            <span class="cell-label">{{ item.label }}</span>
           </div>
         </div>
-
         <div class="montage-set" aria-hidden="true">
-          <div class="montage-cell">
-            <img [src]="thumbMprLinesSrc" alt="Interactive MPR" />
-            <span class="cell-label">Interactive MPR</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumb2dTransferFunctionSrc" alt="3D Volume Rendering" />
-            <span class="cell-label">3D Volume Rendering</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumbNiftiOverlaySrc" alt="Spatial Atlas Mapping" />
-            <span class="cell-label">Spatial Atlas Mapping</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumbRtDoseSrc" alt="Dosimetry Analytics" />
-            <span class="cell-label">Dosimetry Analytics</span>
-          </div>
-          <div class="montage-cell">
-            <img [src]="thumbRtPlanSrc" alt="3D RTPLAN Geometry" />
-            <span class="cell-label">3D RTPLAN Geometry</span>
+          <div
+            class="montage-cell"
+           *ngFor="let item of caruselSrc"  >
+            <img [src]="item.img" [alt]="item.label" />
+            <span class="cell-label">{{ item.label }}</span>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="montage-disclaimer">
-      ⚠️ RESEARCH USE ONLY — NOT FOR CLINICAL DIAGNOSTIC DECISIONS
+  <section
+    class="section format-privacy-hub"
+    aria-label="Data Compatibility and Privacy Framework"
+  >
+    <div class="hub-container">
+      <div class="format-support-block">
+        <div class="section-heading compact">
+          <span class="sub">Interoperability</span>
+          <h2>Supported Formats</h2>
+          <p>
+            RADIWEB 3D natively parses standard clinical and research imaging
+            formats on the fly.
+          </p>
+        </div>
+
+        <div class="format-badge-grid">
+          <div class="format-card">
+            <span class="format-ext">DICOM</span>
+            <span class="format-desc">CT, MR, and PET Image Volumes</span>
+          </div>
+          <div class="format-card">
+            <span class="format-ext">.nii / .gz</span>
+            <span class="format-desc">NIfTI Structural Atlases & Labels</span>
+          </div>
+          <div class="format-card">
+            <span class="format-ext">RTSTRUCT</span>
+            <span class="format-desc">DICOM Radiotherapy Structure Sets</span>
+          </div>
+          <div class="format-card">
+            <span class="format-ext">RTDOSE</span>
+            <span class="format-desc">Continuous Dose Distributions</span>
+          </div>
+          <div class="format-card">
+            <span class="format-ext">RTPLAN</span>
+            <span class="format-desc">Treatment Geometry & Linac Arcs</span>
+          </div>
+          <div class="format-card">
+            <span class="format-ext">DICOM SEG</span>
+            <span class="format-desc">Binary & Fractional Class Segments</span>
+          </div>
+          <div class="format-card">
+          <span class="format-ext">RT BRAC</span>
+          <span class="format-desc">Catheter channels, source dwell positions, and seed matrices.</span>
+        </div>
+        </div>
+      </div>
+
+      <div class="privacy-security-block">
+        <div class="privacy-card-inner">
+          <div class="privacy-icon" aria-hidden="true">🔒</div>
+          <h3>100% Client-Side Pipeline</h3>
+          <p class="privacy-highlight">
+            Your data never leaves your machine. There is no backend server
+            storage or cloud processing.
+          </p>
+
+          <div class="process-steps">
+            <div class="step">
+              <span class="step-num">1</span>
+              <div class="step-text">
+                <strong>Local File Input</strong>
+                <p>
+                  Drag and drop DICOM or NIfTI directories directly into the
+                  browser viewport.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">2</span>
+              <div class="step-text">
+                <strong>In-Browser Parsing</strong>
+                <p>
+                  Files are read asynchronously in memory using JS/TS binary
+                  array streaming.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">3</span>
+              <div class="step-text">
+                <strong>GPU-Accelerated Render</strong>
+                <p>
+                  Textures are pushed straight to local VRAM for Three.js WebGL
+                  volume rendering.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="compliance-note">
+            🔒 <strong>Zero Server Footprint:</strong> Ideal for strict
+            institutional firewalls and internal research sandbox protocols.
+            Fully compliant with localized data protection workflows.
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -175,7 +243,6 @@
           via 1D TF, or leverage advanced 2D TF mapping (HU vs. Gradient
           Magnitude).
         </p>
-
         <div
           class="card-screenshot-wrapper"
           (click)="openLightbox(thumb2dTransferFunctionSrc)"
@@ -196,13 +263,11 @@
           Synchronized Axial, Coronal, and Sagittal views mapped using hybrid
           Canvas/SVG overlays for fluid, sub-millimeter line dragging.
         </p>
-
         <div
           class="card-screenshot-wrapper"
           (click)="openLightbox(thumbMprLinesSrc)"
         >
           <img
-            width="100"
             [src]="thumbMprLinesSrc"
             alt="Sub-millimeter MPR crosshair synchronization"
             class="card-thumb-img"
@@ -218,7 +283,6 @@
           Natively read and overlay complex NIfTI-formatted structural brain
           atlases directly over standard patient CT scans.
         </p>
-
         <div
           class="card-screenshot-wrapper"
           (click)="openLightbox(thumbNiftiOverlaySrc)"
@@ -232,17 +296,6 @@
         </div>
       </div>
 
-      <!-- <div class="card feature-card-with-media">
-      <div class="card-icon" aria-hidden="true">📱</div>
-      <h3>Mobile Tablet Ready</h3>
-      <p>Engineered with a memory-efficient voxel-traversal pipeline optimized specifically for touch events and hardware acceleration.</p>
-      
-      <div class="card-screenshot-wrapper" (click)="openLightbox('tablet-ui')">
-        <img src="assets/imgs/features/thumb-tablet-gesture.jpg" alt="RADIWEB 3D running on a mobile tablet interface" class="card-thumb-img">
-        <span class="zoom-overlay">Click to expand preview 🔍</span>
-      </div>
-    </div> -->
-
       <div class="card feature-card-with-media">
         <div class="card-icon" aria-hidden="true">📱</div>
         <h3>Mobile Tablet Ready</h3>
@@ -251,7 +304,6 @@
           specifically for touch events and hardware acceleration on mobile
           devices.
         </p>
-
         <div
           class="card-screenshot-wrapper tablet-preview"
           (click)="openLightbox(thumbTabletUiSrc)"
@@ -261,7 +313,6 @@
             alt="RADIWEB 3D mobile viewport layout"
             class="card-thumb-img"
           />
-
           <div class="gesture-overlay" aria-hidden="true">
             <svg
               class="hand-icon"
@@ -278,12 +329,12 @@
             </svg>
             <span class="pulse-ring"></span>
           </div>
-
           <span class="zoom-overlay">Click to expand preview 🔍</span>
         </div>
       </div>
     </div>
   </section>
+
   <section id="multimodal" class="section dark">
     <div class="section-heading">
       <span class="sub">Automation</span>
@@ -302,6 +353,13 @@
             <strong>Header Matrix Mapping:</strong> Automatically parses NIfTI
             affine transformations (sform/qform) to synchronize coordinates with
             DICOM physical space.
+          </li>
+          <li>
+            <strong>LPS / RAS Basis Transformation:</strong> Natively detects
+            and re-orients coordinate spaces on the fly. Dynamically bridges
+            DICOM native LPS (Left-Posterior-Superior) patient space with NIfTI
+            research RAS (Right-Anterior-Superior) coordinate grids with zero
+            directional inversion bugs.
           </li>
           <li>
             <strong>Multimodal Overlay:</strong> Simultaneously view structural
@@ -325,6 +383,13 @@
             <div class="face top"></div>
             <div class="face bottom"></div>
 
+
+            <div class="brachy-channel-mock">
+    <span class="dwell-point p1"></span>
+    <span class="dwell-point p2"></span>
+    <span class="dwell-point p3"></span>
+  </div>
+
             <div class="roi-volume tumor-volume">
               <div class="roi-face roi-front">ROI: Tumor</div>
               <div class="roi-face roi-back"></div>
@@ -340,8 +405,6 @@
     </div>
   </section>
 
-
-
   <section id="rt" class="section">
     <div class="section-heading">
       <span class="sub">Dosimetry & Segmentation</span>
@@ -356,7 +419,6 @@
           Render overlapping segmentation masks and intricate structure contours
           with high-performance polygon sorting.
         </p>
-
         <div
           class="card-screenshot-wrapper"
           (click)="openLightbox(thumbRtStructSrc)"
@@ -377,7 +439,6 @@
           Overlay continuous dose distributions directly onto anatomy with
           adjustable threshold color lookups and alpha-blending controls.
         </p>
-
         <div
           class="card-screenshot-wrapper"
           (click)="openLightbox(thumbRtDoseSrc)"
@@ -396,10 +457,8 @@
         <h3>On-The-Fly DVH Engine</h3>
         <p>
           Compute precise Dose-Volume Histograms asynchronously in web worker
-          threads, maintaining absolute system responsiveness during
-          calculations.
+          threads, maintaining absolute system responsiveness.
         </p>
-
         <div
           class="card-screenshot-wrapper"
           (click)="openLightbox(thumbDvhSrc)"
@@ -418,10 +477,8 @@
         <h3>3D RTPLAN Simulation</h3>
         <p>
           Visualize complex beam geometry in true 3D space. Project trajectories
-          from linac source to isocenter, rendering gantry arcs as energy
-          cylinders alongside dynamic jaw and MLC leaf positions.
+          from linac source to isocenter with jaw and MLC positioning.
         </p>
-
         <div
           class="card-screenshot-wrapper"
           (click)="openLightbox(thumbRtPlanSrc)"
@@ -434,8 +491,33 @@
           <span class="zoom-overlay">Click to expand preview 🔍</span>
         </div>
       </div>
+
+            <div class="card feature-card-with-media">
+        <div class="card-icon" aria-hidden="true">📐</div>
+        <h3>3D Brachytherapy Geometry</h3>
+        <p>
+        Natively reconstructs complex 
+          interstitial and intracavitary applicator structures. Renders source channels, 
+          catheter paths, and active dwell point positions in true 3D space superimposed 
+          over patient anatomy.
+        </p>
+        <div
+          class="card-screenshot-wrapper"
+          (click)="openLightbox(thumbRtPlanSrc)"
+        >
+          <img
+            [src]="thumbRtPlanSrc"
+            alt="3D RTPlan beam geometry and linac arc simulation"
+            class="card-thumb-img"
+          />
+          <span class="zoom-overlay">Click to expand preview 🔍</span>
+        </div>
+      </div>
+
+
     </div>
   </section>
+
   <section id="architecture" class="section dark-slate">
     <div class="section-heading">
       <span class="sub">Under The Hood</span>
@@ -448,32 +530,98 @@
       </div>
       <div class="arrow-r" aria-hidden="true">→</div>
       <div class="node">
-        <span>Graphics Pipeline</span><strong>HTML5 Canvas & WebGL</strong>
+        <span>Graphics Engine</span><strong>Three.js (WebGL)</strong>
       </div>
       <div class="arrow-r" aria-hidden="true">→</div>
       <div class="node">
-        <span>UI Layer</span><strong>Scalable Vector Graphics (SVG)</strong>
+        <span>UI / Overlay Layer</span><strong>HTML5 Canvas & SVG</strong>
       </div>
     </div>
     <p class="arch-note">
-      By separating heavy pixel matrices onto the HTML5 canvas layer and
-      structural crosshairs onto high-precision SVG vector overlays, RADIWEB 3D
-      retains sub-pixel precision while scaling down smoothly to touch devices.
+      By offloading pixel matrices onto WebGL fragment shaders via Three.js and
+      projecting structural crosshairs onto high-precision SVG vector overlays,
+      RADIWEB 3D retains crisp sub-pixel precision across platforms.
     </p>
   </section>
-<!-- 
+  <!-- 
   <section class="cta" aria-label="Call to Action">
-    <h2>Experience Desktop-Grade Performance in the Browser</h2>
-    <p>
-      Test real-time 3D volume rendering, dynamic contouring, and zero-click
-      co-registration instantly with our web-native pipeline.
-    </p>
-    <div class="cta-buttons">
-      <button class="btn primary large" (click)="launchApp()" type="button">
-        Launch RADIWEB 3D
-      </button>
-    </div>
+    <h2>Experience Desktop-Grade Performance</h2>
+    <p>Run real-time volume rendering benchmarks and dynamic contouring testing right inside your web browser environment.</p>
+
   </section> -->
+
+  <section id="community" class="section">
+    <div class="section-heading">
+      <span class="sub">Open Science</span>
+      <h2>Contribute & Integrate</h2>
+    </div>
+
+    <div class="community-grid">
+      <div class="community-card dev-card">
+        <div class="comm-icon">💻</div>
+        <h3>Help Us Build the Future</h3>
+        <p>
+          RADIWEB 3D is built by and for the medical physics community. Join us
+          in making advanced web-based visualization accessible to everyone.
+        </p>
+
+        <div class="community-actions">
+          <a
+            href="https://github.com/your-repo/issues"
+            target="_blank"
+            class="comm-link"
+          >
+            <span class="link-icon">🐛</span>
+            <div class="link-text">
+              <strong>Report a Bug</strong>
+              <p>
+                Encountered an orientation flip or parsing error? Open an issue
+                on GitHub.
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/your-repo"
+            target="_blank"
+            class="comm-link"
+          >
+            <span class="link-icon">🚀</span>
+            <div class="link-text">
+              <strong>Contribute Code</strong>
+              <p>
+                Submit a Pull Request to optimize shaders or add format parsers.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="community-card citation-card">
+        <div class="comm-icon">🎓</div>
+        <h3>Cite in Publications</h3>
+        <p>
+          If RADIWEB 3D assists your research, clinical trials, or academic
+          validation, please credit the project by citing our paper:
+        </p>
+
+        <div class="citation-box">
+          <pre><code>&#64;article&#123;radiweb3d2026,
+  author  = &#123;Your Name and Contributors&#125;,
+  title   = &#123;RADIWEB 3D: High-Performance Client-Side Medical Image Visualization Engine&#125;,
+  journal = &#123;Journal of Digital Imaging&#125;,
+  year    = &#123;2026&#125;,
+  volume  = &#123;39&#125;,
+  pages   = &#123;112--120&#125;
+&#125;</code></pre>
+        </div>
+        <span class="citation-hint"
+          >💡 Copy and paste this BibTeX block directly into your LaTeX
+          bibliography file.</span
+        >
+      </div>
+    </div>
+  </section>
 
   <footer id="contact">
     <div class="footer-content">
@@ -493,6 +641,7 @@
       </div>
     </div>
   </footer>
+
   <div
     class="lightbox-overlay"
     *ngIf="activeLightboxImg"
