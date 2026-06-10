@@ -16,9 +16,9 @@ activeLightboxImg: string | null = null;
   viewerUrl = 'https://radiweb-3d.web.app/';
 
 
-thumbNiftiOverlaySrc = 'assets/imgs/features/thumb-nifti-overlay.jpg';
+thumbNiftiOverlaySrc = 'assets/imgs/features/thumb-nifti.png';
 thumbNiftiAtlas = 'assets/imgs/features/thumb-atlas.png';
-thumbMprLinesSrc= 'assets/imgs/features/thumb-mpr-lines.jpg';
+thumbMprLinesSrc= 'assets/imgs/features/thumb-mpr.png';
 thumb2dTransferFunctionSrc = 'assets/imgs/features/thumb-2d-transfer-function.jpg'
 thumbTabletUiSrc = 'assets/imgs/features/thumb-tablet-ui.jpg';
 
@@ -26,8 +26,9 @@ thumbRtStructSrc = 'assets/imgs/features/thumb-rtstruct.jpg';
 thumbRtDoseSrc   = 'assets/imgs/features/thumb-rtdose.jpg';
 thumbDvhSrc      = 'assets/imgs/features/thumb-dvh.jpg';
 thumbRtPlanSrc = 'assets/imgs/features/thumb-rtplan.jpg';
+thumbBrachySrc = 'assets/imgs/features/thumb-brachy.png';
 
-
+thumbMarchingCubesSrc = 'assets/imgs/features/thumb-mcube.png';
 
 thumbKidney= 'assets/imgs/features/thumb-kidney.png';
 thumbLung= 'assets/imgs/features/thumb-lung.png';

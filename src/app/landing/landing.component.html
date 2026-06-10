@@ -47,12 +47,9 @@
 
       <div class="hero-visual">
         <div class="device-stack">
-          <div class="iphone" style="--scale: 0.35">
+          <div class="iphone" style="--scale: 0.3">
             <div class="iphone-screen">
-              <img
-                [src]="thumbNiftiAtlas"
-                alt="Mobile viewing atlas mapping"
-              />
+              <img [src]="thumbNiftiAtlas" alt="Mobile viewing atlas mapping" />
             </div>
           </div>
           <div class="ipad" style="--scale: 0.45">
@@ -110,17 +107,13 @@
     <div class="montage-image-strip">
       <div class="montage-track-animated">
         <div class="montage-set">
-          <div
-            class="montage-cell"
-            *ngFor="let item of caruselSrc"  >
+          <div class="montage-cell" *ngFor="let item of caruselSrc">
             <img [src]="item.img" [alt]="item.label" />
             <span class="cell-label">{{ item.label }}</span>
           </div>
         </div>
         <div class="montage-set" aria-hidden="true">
-          <div
-            class="montage-cell"
-           *ngFor="let item of caruselSrc"  >
+          <div class="montage-cell" *ngFor="let item of caruselSrc">
             <img [src]="item.img" [alt]="item.label" />
             <span class="cell-label">{{ item.label }}</span>
           </div>
@@ -170,9 +163,12 @@
             <span class="format-desc">Binary & Fractional Class Segments</span>
           </div>
           <div class="format-card">
-          <span class="format-ext">RT BRAC</span>
-          <span class="format-desc">Catheter channels, source dwell positions, and seed matrices.</span>
-        </div>
+            <span class="format-ext">RT BRAC</span>
+            <span class="format-desc"
+              >Catheter channels, source dwell positions, and seed
+              matrices.</span
+            >
+          </div>
         </div>
       </div>
 
@@ -236,7 +232,7 @@
 
     <div class="grid">
       <div class="card feature-card-with-media">
-        <div class="card-icon" aria-hidden="true">👁️‍🗨️</div>
+        <div class="card-icon" aria-hidden="true">🎨</div>
         <h3>1D & 2D Transfer Functions</h3>
         <p>
           Isolate critical anatomy instantly. Map Hounsfield Units to opacity
@@ -295,6 +291,29 @@
           <span class="zoom-overlay">Click to expand preview 🔍</span>
         </div>
       </div>
+
+<div class="card feature-card-with-media">
+  <div class="card-icon" aria-hidden="true">🧊</div>
+  <h3>Marching Cubes Surface Extraction</h3>
+  <p>
+    Convert volumetric data into clean geometric structures on the fly. Natively 
+    executes the Marching Cubes algorithm client-side to generate iso-surface 
+    meshes—perfect for reconstructing sharp bony anatomy or skin contours.
+  </p>
+  <div
+    class="card-screenshot-wrapper"
+    (click)="openLightbox(thumbMarchingCubesSrc)"
+  >
+    <img
+      [src]="thumbMarchingCubesSrc"
+      alt="3D isosurface mesh generation using Marching Cubes algorithm"
+      class="card-thumb-img"
+    />
+    <span class="zoom-overlay">Click to expand preview 🔍</span>
+  </div>
+</div>
+
+
 
       <div class="card feature-card-with-media">
         <div class="card-icon" aria-hidden="true">📱</div>
@@ -383,12 +402,11 @@
             <div class="face top"></div>
             <div class="face bottom"></div>
 
-
             <div class="brachy-channel-mock">
-    <span class="dwell-point p1"></span>
-    <span class="dwell-point p2"></span>
-    <span class="dwell-point p3"></span>
-  </div>
+              <span class="dwell-point p1"></span>
+              <span class="dwell-point p2"></span>
+              <span class="dwell-point p3"></span>
+            </div>
 
             <div class="roi-volume tumor-volume">
               <div class="roi-face roi-front">ROI: Tumor</div>
@@ -492,29 +510,27 @@
         </div>
       </div>
 
-            <div class="card feature-card-with-media">
-        <div class="card-icon" aria-hidden="true">📐</div>
+      <div class="card feature-card-with-media">
+        <div class="card-icon" aria-hidden="true">🧬</div>
         <h3>3D Brachytherapy Geometry</h3>
         <p>
-        Natively reconstructs complex 
-          interstitial and intracavitary applicator structures. Renders source channels, 
-          catheter paths, and active dwell point positions in true 3D space superimposed 
-          over patient anatomy.
+          Natively reconstructs complex interstitial and intracavitary
+          applicator structures. Renders source channels, catheter paths, and
+          active dwell point positions in true 3D space superimposed over
+          patient anatomy.
         </p>
         <div
           class="card-screenshot-wrapper"
-          (click)="openLightbox(thumbRtPlanSrc)"
+          (click)="openLightbox(thumbBrachySrc)"
         >
           <img
-            [src]="thumbRtPlanSrc"
-            alt="3D RTPlan beam geometry and linac arc simulation"
+            [src]="thumbBrachySrc"
+            alt="3D Brachytherapy geometry and applicator structures visualization"
             class="card-thumb-img"
           />
           <span class="zoom-overlay">Click to expand preview 🔍</span>
         </div>
       </div>
-
-
     </div>
   </section>
 
