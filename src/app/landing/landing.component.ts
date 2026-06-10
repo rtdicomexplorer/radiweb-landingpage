@@ -39,7 +39,10 @@ thumbKidneys = 'assets/imgs/features/vr_kidneys.gif';
 thumbHnRadio = 'assets/imgs/features/thumb-hn-radio.png';
 thumbLungSeg = 'assets/imgs/features/thumb-lung-seg.png';
 
-
+linkdin_logo = 'assets/imgs/li-logo.png';
+github_logo = 'assets/imgs/github-logo.png';
+orcid_logo = 'assets/imgs/orcid.png';
+author_profile = 'assets/imgs/author.png';
 caruselSrc =  [
                 
                 

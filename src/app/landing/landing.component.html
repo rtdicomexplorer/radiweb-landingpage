@@ -1,32 +1,29 @@
 <main class="page">
-  <header class="navbar">
-    <div class="logo">
+<header class="navbar">
+  <div class="navbar-container"> <div class="logo">
       <span class="logo-icon">
-        <img
-          src="assets/imgs/radweb-small.png"
-          width="50"
-          alt="Radiweb 3D Logo"
-        />
+        <img src="assets/imgs/radweb-small.png" width="50" alt="Radiweb 3D Logo" />
       </span>
-      <!-- Wrapped text components inside a flex-column layout -->
       <div class="logo-text-wrapper">
         <span class="logo-text">RADIWEB 3D</span>
-        <span class="logo-tagline"
-          >High-Performance Client-Side Medical Image Visualization Engine</span
-        >
+        <span class="logo-tagline">High-Performance Client-Side <br>Medical Image Visualization Engine</span>
       </div>
     </div>
+
     <nav aria-label="Main Navigation">
       <a href="#features">Features</a>
       <a href="#multimodal">Co-Registration</a>
       <a href="#rt">Radiotherapy</a>
-      <a href="#architecture">Architecture</a>
+      <a href="#architecture">Architecture</a>      
+      <a href="#author">About the Author</a>
+
     </nav>
 
     <button class="launch-btn" (click)="launchApp()" type="button">
       Launch RADIWEB-3D <span class="btn-arrow" aria-hidden="true">→</span>
     </button>
-  </header>
+
+  </div> </header>
 
   <section class="hero">
     <div class="hero-layout">
@@ -639,6 +636,72 @@
     </div>
   </section>
 
+
+
+  <div
+    class="lightbox-overlay"
+    *ngIf="activeLightboxImg"
+    (click)="closeLightbox()"
+  >
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <button class="close-lightbox-btn" (click)="closeLightbox()">
+        &times;
+      </button>
+      <img
+        [src]="activeLightboxImg"
+        alt="Enlarged medical feature screenshot"
+        class="lightbox-main-img"
+      />
+    </div>
+  </div>
+
+<section id="author" class="section dark">
+  <div class="section-heading">
+    <span class="sub">Biography</span>
+    <h2>Behind the Engine</h2>
+  </div>
+
+  <div class="author-layout">
+    <div class="author-profile-card">
+      <div class="avatar-wrapper">
+        <img src="{{ author_profile }}" alt="Dr. Ing. Michele Bufano - Lead Developer" class="author-avatar" />
+      </div>
+      <div class="author-meta">
+        <h3>Dr. Ing. Michele Bufano</h3>
+        <span class="author-title">Computer scientist/Researcher</span>
+         <p class="author-institution">
+          <a href="https://www.uniklinik-freiburg.de" target="_blank">
+            University Medical Center Freiburg
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="author-bio-text">
+      <h3>Bridging Clinical Physics with Web Architecture</h3>
+      <p>
+        I developed RADIWEB 3D to solve a recurring frustration in modern radiotherapy research: the heavy reliance on localized, platform-dependent software for volumetric assessment. By compiling complex coordinate basis transforms and rendering mechanics straight to web-native layers, this platform brings clinical-grade validation tools to any device.
+      </p>
+      <p>
+        My research focuses on algorithmic optimization, real-time spatial co-registration architectures, and low-latency client-side calculations within DICOM and NIfTI matrices.
+      </p>
+
+      <div class="author-links">
+        
+         <a href="https://www.linkedin.com/in/michele-bufano-76a631158/" target="_blank" class="btn secondary Small">
+           <img src="{{ linkdin_logo }}" alt="LinkedIn" class="social-icon" width="70"  />
+        </a>
+        <a href="https://github.com/rtdicomexplorer" target="_blank" class="btn secondary small">
+            <img src="{{ github_logo }}" alt="GitHub" class="social-icon" height="15" />
+        </a>
+        <a href="https://orcid.org/0009-0000-5067-9814" target="_blank" class="btn secondary small">
+          <img src="{{ orcid_logo }}" alt="ORCID" class="social-icon" width="20" />
+
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
   <footer id="contact">
     <div class="footer-content">
       <p>
@@ -657,21 +720,4 @@
       </div>
     </div>
   </footer>
-
-  <div
-    class="lightbox-overlay"
-    *ngIf="activeLightboxImg"
-    (click)="closeLightbox()"
-  >
-    <div class="lightbox-content" (click)="$event.stopPropagation()">
-      <button class="close-lightbox-btn" (click)="closeLightbox()">
-        &times;
-      </button>
-      <img
-        [src]="activeLightboxImg"
-        alt="Enlarged medical feature screenshot"
-        class="lightbox-main-img"
-      />
-    </div>
-  </div>
 </main>
